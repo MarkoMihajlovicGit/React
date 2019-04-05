@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Loader from './Loader';
 
 class App extends React.Component {
   // constructor(props) {
@@ -33,9 +34,8 @@ class App extends React.Component {
   // componentWillUnmount(){
   //
   //}
-
-  // React says we have to define render, and use it JUST to return JSX!!!!
-  render() {
+  // helper function se we avoid puting conditionls inside render()
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -48,7 +48,11 @@ class App extends React.Component {
       );
     }
 
-    return <div>Loading...!</div>;
+    return <Loader message="Please accept location request" />;
+  }
+  // React says we have to define render, and use it JUST to return JSX!!!!
+  render() {
+    return <div className="border red">{this.renderContent()}</div>;
   }
 }
 
