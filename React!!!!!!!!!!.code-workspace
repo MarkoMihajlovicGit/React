@@ -11,6 +11,9 @@
     },
     {
       "path": "videos"
+    },
+    {
+      "path": "songs"
     }
   ]
 }
