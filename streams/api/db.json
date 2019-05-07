@@ -6,42 +6,10 @@
       "id": 1
     },
     {
-      "title": "stream 2",
-      "description": "test  2",
-      "id": 2
-    },
-    {
-      "title": "stream 3 ",
-      "description": "test 3 ",
-      "id": 3
-    },
-    {
-      "title": "stream4",
-      "description": "test 444",
-      "id": 4
-    },
-    {
-      "title": "stream 5",
-      "description": "test 5",
-      "id": 5
-    },
-    {
       "title": "stream with id",
       "description": "testing id stremas",
       "userId": "117780305887428916401",
       "id": 6
-    },
-    {
-      "title": "Unexpected behavior",
-      "description": "didnt expect that",
-      "userId": "117780305887428916401",
-      "id": 7
-    },
-    {
-      "title": "history ",
-      "description": "push test",
-      "userId": "117780305887428916401",
-      "id": 8
     }
   ]
 }
