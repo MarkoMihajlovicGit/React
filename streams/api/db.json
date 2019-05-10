@@ -10,6 +10,12 @@
       "description": "testing id stremas",
       "userId": "117780305887428916401",
       "id": 6
+    },
+    {
+      "title": "stream show",
+      "description": "show me the stream with id ",
+      "userId": "117780305887428916401",
+      "id": 7
     }
   ]
 }
