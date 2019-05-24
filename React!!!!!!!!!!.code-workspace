@@ -26,6 +26,12 @@
     },
     {
       "path": "hooks"
+    },
+    {
+      "path": "Colt"
     }
-  ]
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Colt"
+  }
 }
