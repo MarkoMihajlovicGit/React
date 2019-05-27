@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Pokedex from './Pokedex';
 import pokemons from './pokemons';
+import './Pokegame.css';
 
 export default class Pokegame extends Component {
   static defaultProps = {
@@ -26,19 +27,23 @@ export default class Pokegame extends Component {
     const winner = exp1 > exp2 ? true : false;
 
     return (
-      <div>
-        <Pokedex
-          handNum={1}
-          pokemons={firstHalfDeck}
-          totalDeckExp={exp1}
-          isWinner={winner}
-        />
-        <Pokedex
-          handNum={2}
-          pokemons={secondHalfDeck}
-          totalDeckExp={exp2}
-          isWinner={!winner}
-        />
+      <div className="Pokegame">
+        <div className="Pokegame-div">
+          <Pokedex
+            handNum={1}
+            pokemons={firstHalfDeck}
+            totalDeckExp={exp1}
+            isWinner={winner}
+          />
+        </div>
+        <div className="Pokegame-div">
+          <Pokedex
+            handNum={2}
+            pokemons={secondHalfDeck}
+            totalDeckExp={exp2}
+            isWinner={!winner}
+          />
+        </div>
       </div>
     );
   }
