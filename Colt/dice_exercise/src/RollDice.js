@@ -22,24 +22,27 @@ export default class RollDice extends Component {
   };
   rollDices = () => {
     this.setState({
-      diceOne: this.roll(),
-      diceTwo: this.roll(),
       rolling: true
     });
     setTimeout(() => {
-      this.setState({ rolling: false });
+      this.setState({
+        diceOne: this.roll(),
+        diceTwo: this.roll(),
+        rolling: false
+      });
     }, 1000);
   };
 
   render() {
+    const { diceOne, diceTwo, rolling } = this.state;
     return (
       <div className="RollDice">
         <div className="RollDice-container">
-          <Die diceValue={this.state.diceOne} rolling={this.state.rolling} />
-          <Die diceValue={this.state.diceTwo} rolling={this.state.rolling} />
+          <Die diceValue={diceOne} rolling={rolling} />
+          <Die diceValue={diceTwo} rolling={rolling} />
         </div>
-        <button onClick={this.rollDices} disabled={this.state.rolling}>
-          {this.state.rolling ? 'Rolling...' : 'Roll the Dices'}
+        <button onClick={this.rollDices} disabled={rolling}>
+          {rolling ? 'Rolling...' : 'Roll the Dices'}
         </button>
       </div>
     );
