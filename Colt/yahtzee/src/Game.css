@@ -77,6 +77,20 @@ h2 {
   animation: Gradient 15s ease infinite;
 }
 
+.Game-restart-game {
+  width: 100%;
+  height: 40px;
+  font-size: 1.6em;
+  background-color: #7f7fd5;
+  border: none;
+  color: #ddd;
+}
+
+.Game-restart-game:hover {
+  font-weight: bold;
+  background-color: #8989d4;
+}
+
 @keyframes Gradient {
   0% {
     background-position: 0% 50%;

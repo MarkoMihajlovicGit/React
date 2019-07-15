@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dice from './Dice';
 import ScoreTable from './ScoreTable';
+import startingState from './startingState';
 import './Game.css';
 
 const NUM_DICE = 5;
@@ -9,28 +10,7 @@ const NUM_ROLLS = 3;
 class Game extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dice: Array.from({ length: NUM_DICE }).map(d => 5),
-      locked: Array(NUM_DICE).fill(false),
-      rollsLeft: NUM_ROLLS,
-      rolling: false,
-      gameOver: false,
-      scores: {
-        ones: undefined,
-        twos: undefined,
-        threes: undefined,
-        fours: undefined,
-        fives: undefined,
-        sixes: undefined,
-        threeOfKind: undefined,
-        fourOfKind: undefined,
-        fullHouse: undefined,
-        smallStraight: undefined,
-        largeStraight: undefined,
-        yahtzee: undefined,
-        chance: undefined
-      }
-    };
+    this.state = startingState;
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
   }
@@ -107,6 +87,11 @@ class Game extends Component {
     return this.testObj(this.state.scores);
   };
 
+  restartGame = () => {
+    this.setState(startingState);
+    this.animateRoll();
+  };
+
   render() {
     const { dice, locked, rolling, rollsLeft, scores, gameOver } = this.state;
 
@@ -115,7 +100,12 @@ class Game extends Component {
         <div className="Game">
           <header className="Game-header">
             <h1 className="App-title">Yahtzee!</h1>
-            <h2>Final Score: {this.sumValues(scores)}</h2>
+            <section className="Game-dice-section">
+              <h2>Final Score: {this.sumValues(scores)}</h2>
+            </section>
+            <button onClick={this.restartGame} className="Game-restart-game">
+              Play again?
+            </button>
           </header>
         </div>
       );
