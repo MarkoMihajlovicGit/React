@@ -5,6 +5,7 @@ const startingState = {
   dice: Array.from({ length: NUM_DICE }).map(
     d => Math.floor(Math.random() * 5) + 1
   ),
+  bestScores: [],
   locked: Array(NUM_DICE).fill(false),
   rollsLeft: NUM_ROLLS,
   rolling: false,

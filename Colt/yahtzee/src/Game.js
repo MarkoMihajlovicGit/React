@@ -88,12 +88,40 @@ class Game extends Component {
   };
 
   restartGame = () => {
-    this.setState(startingState);
+    this.setState(st => ({
+      ...startingState,
+      bestScores: st.bestScores
+    }));
+    this.bestScores();
     this.animateRoll();
   };
 
+  bestScores = () => {
+    if (this.state.gameOver) {
+      this.setState(st => ({
+        bestScores: [...st.bestScores, this.sumValues(this.state.scores)]
+      }));
+    }
+  };
+
   render() {
-    const { dice, locked, rolling, rollsLeft, scores, gameOver } = this.state;
+    const {
+      dice,
+      locked,
+      rolling,
+      rollsLeft,
+      scores,
+      gameOver,
+      bestScores
+    } = this.state;
+
+    const finalScore = this.sumValues(scores);
+
+    const biggestNumInArray =
+      bestScores.length > 0 ? Math.max(...bestScores) : 0;
+
+    const bestScore =
+      biggestNumInArray <= finalScore ? finalScore : biggestNumInArray;
 
     if (gameOver) {
       return (
@@ -101,7 +129,9 @@ class Game extends Component {
           <header className="Game-header">
             <h1 className="App-title">Yahtzee!</h1>
             <section className="Game-dice-section">
-              <h2>Final Score: {this.sumValues(scores)}</h2>
+              <h2>Final Score: {finalScore}</h2>
+              <br />
+              <h2>Best Score:{bestScore}</h2>
             </section>
             <button onClick={this.restartGame} className="Game-restart-game">
               Play again?
@@ -114,7 +144,6 @@ class Game extends Component {
         <div className="Game">
           <header className="Game-header">
             <h1 className="App-title">Yahtzee!</h1>
-
             <section className="Game-dice-section">
               <Dice
                 dice={dice}
@@ -138,6 +167,7 @@ class Game extends Component {
             doScore={this.doScore}
             scores={scores}
             sumScores={this.sumValues}
+            bestScore={biggestNumInArray}
           />
         </div>
       );
