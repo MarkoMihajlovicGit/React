@@ -20,19 +20,14 @@ import {
 class ScoreTable extends Component {
   render() {
     const { scores, doScore, sumScores, bestScore } = this.props;
-    const showBestScore =
-      bestScore === -Infinity ? (
-        <h3>Best Score: </h3>
-      ) : (
-        <h3>Best Score: {bestScore}</h3>
-      );
 
     return (
       <div className="ScoreTable">
         <section className="ScoreTable-section">
           <h2>Total Score: {sumScores(scores)}</h2>
           <br />
-          {showBestScore}
+          <h2>Best Score: {bestScore}</h2>
+          <br />
           <h2>Upper</h2>
           <table cellSpacing="0">
             <tbody>
