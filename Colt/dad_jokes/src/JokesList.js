@@ -16,7 +16,6 @@ export default class JokesList extends Component {
       loading: false
     };
     this.seenJokes = new Set(this.state.jokes.map(j => j.id));
-    console.log(this.seenJokes);
   }
 
   componentDidMount() {
@@ -37,7 +36,7 @@ export default class JokesList extends Component {
         let newJokeId = res.data.id;
         let newJoke = res.data.joke;
         const isUnique = !this.seenJokes.has(newJokeId);
-        console.log(isUnique);
+
         if (isUnique) {
           jokes.push({ id: newJokeId, joke: newJoke, votes: 0 });
           this.seenJokes.add(newJokeId);
@@ -49,7 +48,7 @@ export default class JokesList extends Component {
       this.setState(
         st => ({
           loading: false,
-          jokes: [...st.jokes, ...jokes]
+          jokes: [...st.jokes, ...jokes].sort((a, b) => b.votes - a.votes)
         }),
         () =>
           window.localStorage.setItem('jokes', JSON.stringify(this.state.jokes))
@@ -77,6 +76,8 @@ export default class JokesList extends Component {
   };
 
   render() {
+    //let sortedJokes = [...this.state.jokes].sort((a, b) => b.votes - a.votes);
+
     return (
       <div className="JokeList">
         <div className="JokeList-sidebar">

@@ -30,18 +30,72 @@
   box-shadow: 1px -1px 70px -33px rgba(14, 0, 14, 0.79),
     1px 29px 70px -9px rgba(10, 3, 10, 0.79);
 }
+.fa-arrow-up:hover {
+  animation: move-up 0.7s ease-out;
+  color: #4caf50;
+}
+.fa-arrow-down:hover {
+  animation: move-down 0.7s ease-out;
+  color: #f44336;
+}
 
 .fa-arrow-up,
 .fa-arrow-down {
   font-size: 1.5rem;
   margin: 10px;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
+.Joke-smiley:hover {
+  transition: all 0.3s;
+  animation: spin 0.7s ease-in-out;
+}
 .Joke-smiley {
   font-size: 3rem;
   margin-left: auto;
   border-radius: 50%;
   box-shadow: 1px -1px 70px -33px rgba(14, 0, 14, 0.79),
     1px 29px 70px -9px rgba(10, 3, 10, 0.79);
+}
+
+@keyframes move-up {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes move-down {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
