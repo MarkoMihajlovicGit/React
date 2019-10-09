@@ -47,9 +47,7 @@
   text-transform: uppercase;
   font-size: 12px;
 }
-.light-text {
-  color: white;
-}
+
 .see-more {
   background: rgba(255, 255, 255, 0.3);
   position: absolute;
@@ -62,10 +60,6 @@
   text-align: center;
   line-height: 30px;
   text-transform: uppercase;
-}
-.dark-text {
-  /* background: rgba(255, 255, 255, 0.6); */
-  color: rgba(0, 0, 0, 0.7);
 }
 
 .copy-overlay {
