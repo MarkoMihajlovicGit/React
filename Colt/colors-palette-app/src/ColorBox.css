@@ -1,4 +1,4 @@
-.ColorBox {
+/* .ColorBox {
   width: 20%;
   height: 25%;
   margin: 0 auto;
@@ -119,8 +119,8 @@
 
 .SingleColorPalette .ColorBox {
   height: 50%;
-}
+} */
 
-.ColorBox.go-back {
-  background-color: black;
+.go-back {
+  background-color: rgb(2, 2, 2);
 }
