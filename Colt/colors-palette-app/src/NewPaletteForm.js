@@ -12,9 +12,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { ChromePicker } from 'react-color';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import styles from './styles/NewPaletteFormStyles';
 import DraggableColorBox from './DraggableColorBox';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 class NewPaletteForm extends React.Component {
   constructor(props) {
@@ -61,6 +61,18 @@ class NewPaletteForm extends React.Component {
   handleChange = evt => {
     this.setState({ newName: evt.target.value });
   };
+  handleSubmit = () => {
+    let newName = 'New Test Palette';
+    const newPalette = {
+      paletteName: newName,
+      id: newName.toLowerCase().replace(/ /g, '-'),
+      colors: this.state.colors
+    };
+    this.props.savePalette(newPalette);
+
+    //redirect
+    this.props.history.push('/');
+  };
 
   render() {
     const { classes } = this.props;
@@ -74,6 +86,7 @@ class NewPaletteForm extends React.Component {
           className={classNames(classes.appBar, {
             [classes.appBarShift]: open
           })}
+          color="default"
         >
           <Toolbar disableGutters={!open}>
             <IconButton
@@ -87,6 +100,13 @@ class NewPaletteForm extends React.Component {
             <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
             </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSubmit}
+            >
+              Save Palette
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
