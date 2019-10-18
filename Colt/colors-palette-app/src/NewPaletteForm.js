@@ -24,7 +24,7 @@ class NewPaletteForm extends React.Component {
       currentColor: 'teal',
       newColorName: '',
       newPaletteName: '',
-      colors: []
+      colors: [{ color: 'blue', name: 'Blue' }]
     };
   }
 
@@ -83,6 +83,12 @@ class NewPaletteForm extends React.Component {
 
     //redirect
     this.props.history.push('/');
+  };
+
+  removeColor = colorName => {
+    this.setState({
+      colors: this.state.colors.filter(color => color.name !== colorName)
+    });
   };
 
   render() {
@@ -194,6 +200,7 @@ class NewPaletteForm extends React.Component {
               color={color.color}
               name={color.name}
               key={color.name}
+              handleClick={() => this.removeColor(color.name)}
             ></DraggableColorBox>
           ))}
         </main>
