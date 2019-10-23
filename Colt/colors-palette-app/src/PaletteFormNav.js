@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withStyles, withTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/PaletteFormNavStyles.js';
 import classNames from 'classnames';
 import CssBaseline from '@material-ui/core/CssBaseline';
