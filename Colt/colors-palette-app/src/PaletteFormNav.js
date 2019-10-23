@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-
 import { Link } from 'react-router-dom';
 
 class PaletteFormNav extends Component {
