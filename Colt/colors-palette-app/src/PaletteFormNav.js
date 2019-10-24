@@ -13,10 +13,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 
 class PaletteFormNav extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      formShowing: false
+    };
+  }
+
+  showForm = () => {
+    this.setState({ formShowing: true });
+  };
 
   render() {
     const {
@@ -51,18 +57,31 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <PaletteMetaForm
-              handleSubmit={handleSubmit}
-              palettes={palettes}
-            ></PaletteMetaForm>
-
             <Link to="/">
-              <Button variant="contained" color="secondary">
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
                 GO BACK!
               </Button>
             </Link>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.showForm}
+              className={classes.button}
+            >
+              Save Palette
+            </Button>
           </div>
         </AppBar>
+        {this.state.formShowing && (
+          <PaletteMetaForm
+            handleSubmit={handleSubmit}
+            palettes={palettes}
+          ></PaletteMetaForm>
+        )}
       </div>
     );
   }
