@@ -46,14 +46,10 @@ class NewPaletteForm extends React.Component {
     });
   };
 
-  handleSubmit = newPaletteName => {
-    const newPalette = {
-      paletteName: newPaletteName,
-      id: newPaletteName.toLowerCase().replace(/ /g, '-'),
-      colors: this.state.colors
-    };
+  handleSubmit = newPalette => {
+    newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, '-');
+    newPalette.colors = this.state.colors;
     this.props.savePalette(newPalette);
-
     //redirect
     this.props.history.push('/');
   };
@@ -75,11 +71,6 @@ class NewPaletteForm extends React.Component {
   };
 
   addRandomColor = () => {
-    //pick random color from existing palettes
-    // const allColors = this.props.palettes.map(p => p.colors).flat();
-    // let rand = Math.floor(Math.random() * allColors.length);
-    // const randomColor = allColors[rand];
-    // this.setState({ colors: [...this.state.colors, randomColor] });
     const getColor = () => {
       const randomPaletteIndex = Math.floor(
         Math.random() * this.props.palettes.length
