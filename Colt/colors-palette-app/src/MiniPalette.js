@@ -16,8 +16,8 @@ function MiniPalette(props) {
 
   return (
     <div className={classes.root} onClick={handleClick}>
-      <div>
-        <DeleteForeverIcon></DeleteForeverIcon>
+      <div className={classes.delete}>
+        <DeleteForeverIcon className={classes.deleteIcon}></DeleteForeverIcon>
       </div>
       <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
