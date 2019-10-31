@@ -33,12 +33,6 @@ class NewPaletteForm extends React.Component {
     this.setState({ open: false });
   };
 
-  // handleChange = evt => {
-  //   this.setState({
-  //     [evt.target.name]: evt.target.value
-  //   });
-  // };
-
   addNewColor = newColor => {
     this.setState({
       colors: [...this.state.colors, newColor],

@@ -56,7 +56,12 @@ class PaletteFormNav extends Component {
             >
               <ChevronRightIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.title}
+            >
               Create a Palette
             </Typography>
           </Toolbar>
@@ -76,7 +81,7 @@ class PaletteFormNav extends Component {
               onClick={this.showForm}
               className={classes.button}
             >
-              Save Palette
+              Save
             </Button>
           </div>
         </AppBar>
