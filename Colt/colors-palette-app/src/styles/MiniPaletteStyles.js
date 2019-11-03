@@ -6,7 +6,7 @@ export default {
     padding: '0.5rem',
     position: 'relative',
     overflow: 'hidden',
-    marginBottom: '5%',
+    // marginBottom: '5%',
     cursor: 'pointer',
     '&:hover svg': {
       opacity: 1
