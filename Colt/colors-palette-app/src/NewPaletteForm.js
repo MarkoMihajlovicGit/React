@@ -165,6 +165,7 @@ class NewPaletteForm extends React.Component {
             removeColor={this.removeColor}
             onSortEnd={this.onSortEnd}
             axis="xy"
+            distance={20}
           ></DraggableColorList>
         </main>
       </div>
