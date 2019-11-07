@@ -92,7 +92,7 @@ export default [
       { name: 'MintLeaf', color: '#00b894' },
       { name: 'RobinsEggBlue', color: '#00cec9' },
       { name: 'ElectronBlue', color: '#0984e3' },
-      { name: 'ExodusFruit', color: '#6c5ce7' },
+      { name: 'ExodusFruits', color: '#6c5ce7' },
       { name: 'SoothingBreeze', color: '#b2bec3' },
       { name: 'SourLemon', color: '#ffeaa7' },
       { name: 'FirstDate', color: '#fab1a0' },
@@ -113,7 +113,7 @@ export default [
     colors: [
       { name: 'Beekeeper', color: '#f6e58d' },
       { name: 'SpicedNectarine', color: '#ffbe76' },
-      { name: 'PinkGlamour', color: '#ff7979' },
+      { name: 'PinkGlamourish', color: '#ff7979' },
       { name: 'JuneBud', color: '#badc58' },
       { name: 'CoastalBreeze', color: '#dff9fb' },
       { name: 'Turbo', color: '#f9ca24' },

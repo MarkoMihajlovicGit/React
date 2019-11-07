@@ -1,21 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
-import PaletteFormNav from './PaletteFormNav';
+import arrayMove from 'array-move';
 import { withStyles } from '@material-ui/core/styles';
-import styles from './styles/NewPaletteFormStyles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
 import DraggableColorList from './DraggableColorList';
-import arrayMove from 'array-move';
+import styles from './styles/NewPaletteFormStyles';
 
 class NewPaletteForm extends React.Component {
   static defaultProps = {
-    maxColors: 20
+    maxColors: 80
   };
   constructor(props) {
     super(props);
@@ -75,26 +75,21 @@ class NewPaletteForm extends React.Component {
       );
       return randomPalette.colors[randomColorIndex];
     };
-    const color = getColor();
 
     const validateColor = color => {
       const colors = this.state.colors;
-      if (colors.includes(color)) {
-        console.log(`Found Duplicate ${color.name}`);
-        let otherColor = getColor();
-        console.log(`OTHER COLOR ${otherColor.name}`);
-        if (colors.includes(otherColor)) {
-          let newColor = getColor();
-          return newColor;
-        } else {
-          return otherColor;
-        }
-      } else {
-        return color;
+      while (colors.includes(color)) {
+        console.log('Found DUPLICATE : ', color);
+        color = getColor();
+        console.log('NEW COLOR IS: ', color);
       }
+      return color;
     };
 
-    this.setState({ colors: [...this.state.colors, validateColor(color)] });
+    const validatedColor = validateColor(getColor());
+    console.log(validatedColor);
+
+    this.setState({ colors: [...this.state.colors, validatedColor] });
   };
 
   render() {

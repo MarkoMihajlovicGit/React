@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import PaletteMetaForm from './PaletteMetaForm';
-import styles from './styles/PaletteFormNavStyles.js';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,8 +9,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import PaletteMetaForm from './PaletteMetaForm';
 
-import { Link } from 'react-router-dom';
+import styles from './styles/PaletteFormNavStyles.js';
 
 class PaletteFormNav extends Component {
   constructor(props) {
@@ -36,6 +36,7 @@ class PaletteFormNav extends Component {
       handleDrawerOpen,
       palettes
     } = this.props;
+    const { formShowing } = this.state;
 
     return (
       <div className={classes.root}>
@@ -85,7 +86,7 @@ class PaletteFormNav extends Component {
             </Button>
           </div>
         </AppBar>
-        {this.state.formShowing && (
+        {formShowing && (
           <PaletteMetaForm
             handleSubmit={handleSubmit}
             palettes={palettes}
