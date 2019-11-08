@@ -84,10 +84,7 @@ class NewPaletteForm extends React.Component {
       }
       return color;
     };
-
     const validatedColor = validateColor(getColor());
-    console.log(validatedColor);
-
     this.setState({ colors: [...this.state.colors, validatedColor] });
   };
 
