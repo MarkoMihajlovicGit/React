@@ -9,7 +9,7 @@ class ColorPickerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentColor: 'teal',
+      currentColor: 'rgb(226,43,5)',
       newColorName: ''
       // colors: this.props.colors
     };
@@ -57,10 +57,7 @@ class ColorPickerForm extends Component {
           onChangeComplete={this.updateCurrentColor}
           className={classes.picker}
         ></ChromePicker>
-        <ValidatorForm
-          onSubmit={this.handleSubmit}
-          // instantValidate={false}
-        >
+        <ValidatorForm onSubmit={this.handleSubmit} instantValidate={false}>
           <TextValidator
             className={classes.colorNameInput}
             value={newColorName}

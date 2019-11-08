@@ -11,17 +11,18 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
 import DraggableColorList from './DraggableColorList';
+import seedColors from './seedColors';
 import styles from './styles/NewPaletteFormStyles';
 
 class NewPaletteForm extends React.Component {
   static defaultProps = {
-    maxColors: 80
+    maxColors: 20
   };
   constructor(props) {
     super(props);
     this.state = {
       open: true,
-      colors: this.props.palettes[0].colors
+      colors: seedColors[0].colors
     };
   }
 
@@ -66,10 +67,8 @@ class NewPaletteForm extends React.Component {
 
   addRandomColor = () => {
     const getColor = () => {
-      const randomPaletteIndex = Math.floor(
-        Math.random() * this.props.palettes.length
-      );
-      const randomPalette = this.props.palettes[randomPaletteIndex];
+      const randomPaletteIndex = Math.floor(Math.random() * seedColors.length);
+      const randomPalette = seedColors[randomPaletteIndex];
       const randomColorIndex = Math.floor(
         Math.random() * randomPalette.colors.length
       );
